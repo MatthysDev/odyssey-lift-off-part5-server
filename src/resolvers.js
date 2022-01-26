@@ -44,7 +44,13 @@ const resolvers = {
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);
     },
+    durationInSeconds: ({ length }) => length,
   },
+  Module: {
+    durationInSeconds: ({ length }) => length,
+  },
+  "The track's approximate length to complete, in seconds"
+length: Int @deprecated(reason: "Use durationInSeconds")
 };
 
 module.exports = resolvers;
